@@ -23,7 +23,7 @@ export const echoTaskWindow = sqliteTable("echo_task_window", {
 });
 
 
-export const user = sqliteTable("echo_task_record", {
+export const echoTaskRecord = sqliteTable("echo_task_record", {
   id: integer('id').primaryKey({ autoIncrement: true }),
   echoTaskType: text('echo_task_type').references(() => echoTaskType.id),
   timestamp: integer('timestamp'),

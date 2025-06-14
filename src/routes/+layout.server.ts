@@ -1,8 +1,8 @@
-import * as db from '$lib/server/db';
-import type { LayoutServerLoad } from './$types';
+// import * as db from '$lib/server/db';
+// import type { LayoutServerLoad } from './$types';
 
-export const load: LayoutServerLoad = async () => {
-	return {
-		posts: await db.
-	};
-};
+// export const load: LayoutServerLoad = async () => {
+// 	return {
+// 		posts: await db.
+// 	};
+// };
