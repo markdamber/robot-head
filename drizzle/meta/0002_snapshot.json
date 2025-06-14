@@ -1,0 +1,177 @@
+{
+  "id": "bf69f04d-cbcd-430e-bba8-213cc62a5a07",
+  "prevId": "4da88794-32af-4890-959d-dee5628e21b2",
+  "version": "6",
+  "dialect": "sqlite",
+  "tables": {
+    "echo_task_type": {
+      "name": "echo_task_type",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "echo_task_window": {
+      "name": "echo_task_window",
+      "columns": {
+        "qualifier": {
+          "name": "qualifier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "echo_task_type": {
+          "name": "echo_task_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "applicable_start_offset": {
+          "name": "applicable_start_offset",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "warning_offset": {
+          "name": "warning_offset",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "critical_offset": {
+          "name": "critical_offset",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "applicable_end_offset": {
+          "name": "applicable_end_offset",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "echo_task_window_echo_task_type_echo_task_type_id_fk": {
+          "name": "echo_task_window_echo_task_type_echo_task_type_id_fk",
+          "tableFrom": "echo_task_window",
+          "columnsFrom": [
+            "echo_task_type"
+          ],
+          "tableTo": "echo_task_type",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "echo_task_window_echo_task_type_qualifier_pk": {
+          "columns": [
+            "echo_task_type",
+            "qualifier"
+          ],
+          "name": "echo_task_window_echo_task_type_qualifier_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "echo_task_record": {
+      "name": "echo_task_record",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "echo_task_type": {
+          "name": "echo_task_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "timestamp": {
+          "name": "timestamp",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "idx_echo_record_task_type_timestamp": {
+          "name": "idx_echo_record_task_type_timestamp",
+          "columns": [
+            "echo_task_type",
+            "timestamp"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "echo_task_record_echo_task_type_echo_task_type_id_fk": {
+          "name": "echo_task_record_echo_task_type_echo_task_type_id_fk",
+          "tableFrom": "echo_task_record",
+          "columnsFrom": [
+            "echo_task_type"
+          ],
+          "tableTo": "echo_task_type",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}
