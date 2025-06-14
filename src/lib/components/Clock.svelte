@@ -10,7 +10,7 @@
     theme?: 'light' | 'dark';
   }
   
-  const { time = new Date(), size = 300, theme = 'light' }: Props = $props();
+  const { time = new Date(), size = 600, theme = 'light' }: Props = $props();
   
   let currentTime = $state(time);
   let mounted = $state(false);
